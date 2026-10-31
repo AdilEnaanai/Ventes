@@ -6,6 +6,7 @@ import univ.fac.gcommerce.entities.Produit;
 import univ.fac.gcommerce.repositories.ProduitRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProduitService {
@@ -21,5 +22,14 @@ public class ProduitService {
 
     public List<Produit> getAllProduits() {
         return produitRepository.findAll();
+    }
+
+    public Produit getProduitById(UUID id) {
+        return produitRepository.findById(id).orElse(null);
+    }
+
+    public boolean deleteProduitById(UUID id) {
+        produitRepository.deleteById(id);
+        return !produitRepository.existsById(id);
     }
 }
