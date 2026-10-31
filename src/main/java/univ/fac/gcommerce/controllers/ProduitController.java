@@ -33,5 +33,4 @@ public class ProduitController {
     public boolean deleteProduit(@PathVariable UUID id){
         return produitService.deleteProduitById(id);
     }
-
 }
