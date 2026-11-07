@@ -52,6 +52,7 @@ public class ProduitController {
             @RequestParam(required = false) Double prixMax,
             @RequestParam(required = false) String categorieNom
     ){
+        //
         Specification<Produit> spec=Specification.unrestricted();
         if (designation!=null && !designation.isBlank()){
             spec=spec.and(ProduitSpecification.designationContient(designation));
