@@ -34,7 +34,8 @@ public class CategorieService {
     }
 
     public List<ProduitDTO> getAllProduits(String nomcat) {
-        return categorieRepository.findCategorieByNom(nomcat).getProduits().stream().map(Produit::toDTO).toList();
+    //    return categorieRepository.findCategorieByNom(nomcat).getProduits().stream().map(Produit::toDTO).toList();
+        return produitRepository.findByCategorieNom(nomcat).stream().map(Produit::toDTO).toList();
     }
 
     public boolean deleteCategorieById(Long id) {
